@@ -23,8 +23,8 @@ exports.default = [{
   alias: 'c',
   type: String,
   group: "options",
-  description: 'generate Vue js component',
-  defaultOption: true
+  description: 'generate Vue js component' /*,
+                                           defaultOption: true*/
 }, {
   name: 'directive',
   alias: 'd',
@@ -36,7 +36,8 @@ exports.default = [{
   alias: 's',
   type: String,
   group: "options",
-  description: 'generate Vue js component single file'
+  description: 'generate Vue js component single file',
+  defaultOption: true
 }, {
   name: 'folder',
   alias: 'f',

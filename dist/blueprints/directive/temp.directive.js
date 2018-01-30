@@ -1,17 +1,17 @@
 import Vue from 'vue';
 
 Vue.directive('{{name | kebabCase}}', {
-  bind() {
+    bind() {
 
-  },
-  // When the bound element is inserted into the DOM...
-  inserted(el) {
-    // el.focus();
-  },
-  update() {
+    },
+    // When the bound element is inserted into the DOM...
+    inserted(/*el*/) {
+        // el.focus();
+    },
+    update() {
 
-  },
-  unbind() {
+    },
+    unbind() {
 
-  }
+    }
 })

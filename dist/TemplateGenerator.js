@@ -172,7 +172,7 @@ var TemplateGenerator = function () {
       var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'js';
 
       if (type === 'single') {
-        return this.TEMPLATES_DIR + '/' + type + '/temp.vue';
+        return this.TEMPLATES_DIR + '/' + type + '/temp.component.vue';
       }
       return this.TEMPLATES_DIR + '/' + type + '/temp.' + type + '.' + extension;
     }
