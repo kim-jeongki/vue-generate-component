@@ -155,7 +155,10 @@ var TemplateGenerator = function () {
         newName = newName.replace(/sty/, 'component').replace(/extension/, fileTypes.style);
       }
 
-      return newName;
+      //remove path token in newName
+      var tokens = newName.split('/');
+      return tokens[tokens.length - 1];
+      // return newName;
     }
 
     /**
