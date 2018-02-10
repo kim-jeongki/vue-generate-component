@@ -131,8 +131,8 @@ var TemplateGenerator = function () {
 
           filePath = _path2.default.join(folder, fileName);
           if (require('fs').existsSync(filePath)) {
-            var n = prompt('Do you want to overwrite \'' + fileName + '\' file? (y|n)');
-            if ((n || '').toLowerCase() === 'y') {
+            var answer = prompt('Do you want to overwrite \'' + fileName + '\' file?(y|n) (default=n)');
+            if ((answer || 'n').toLowerCase() === 'y') {
               _fsExtra2.default.outputFile(filePath, compiled, function (err) {
                 if (err) console.log(err);
               });
@@ -145,6 +145,13 @@ var TemplateGenerator = function () {
         });
       });
     }
+
+    /**
+     *
+     * @param name
+     * @private
+     */
+
   }, {
     key: '_extraNameOnlyWithoutPathTokens',
     value: function _extraNameOnlyWithoutPathTokens(name) {
