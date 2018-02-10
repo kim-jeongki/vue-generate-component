@@ -5,7 +5,7 @@ Vue.directive('{{name | kebabCase}}', {
 
     },
     // When the bound element is inserted into the DOM...
-    inserted(/*el*/) {
+    inserted(/* el */) {
         // el.focus();
     },
     update() {

@@ -39,6 +39,7 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "chmod": "^0.2.1",
     "run-sequence": "^1.2.1"
   }
 }

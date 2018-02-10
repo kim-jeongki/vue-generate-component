@@ -1,9 +1,11 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
+var chmod = require('chmod');
+var through = require('through2');
 var del = require('del');
 var runSequence = require('run-sequence');
 
-gulp.task('dev', function() {
+gulp.task('dev', function () {
     return gulp.src(['./lib/**/*.js', '!./lib/blueprints/**/*.js'])
         .pipe(babel({
             presets: ['es2015']
@@ -11,7 +13,7 @@ gulp.task('dev', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy', function() {
+gulp.task('copy', function () {
     gulp.src('./lib/blueprints/**/**', {
             base: "./lib"
         })
@@ -19,16 +21,21 @@ gulp.task('copy', function() {
 
     gulp.src('./lib/config/config.json')
         .pipe(gulp.dest('./dist/config'));
+
+    gulp.src('./dist/vgc.js', {read: false})
+        .pipe(through.obj(function (file, enc, callback) {
+            chmod(file.path, 755);
+            return callback(null, file);
+        }));
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
     return del([
         'dist/**'
     ]);
 });
 
-
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
     runSequence('clean',
         'dev',
         'copy',
