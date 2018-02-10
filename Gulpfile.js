@@ -1,6 +1,6 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var babel = require('gulp-babel');
-var chmod = require('chmod');
 var through = require('through2');
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -24,7 +24,7 @@ gulp.task('copy', function () {
 
     gulp.src('./dist/vgc.js', {read: false})
         .pipe(through.obj(function (file, enc, callback) {
-            chmod(file.path, 755);
+            fs.chmodSync(file.path, parseInt(755, 8));
             return callback(null, file);
         }));
 });
