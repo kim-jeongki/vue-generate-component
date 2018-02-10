@@ -32,6 +32,12 @@ exports.default = [{
   group: "options",
   description: 'generate Vue js directive'
 }, {
+  name: 'filter',
+  alias: 'f',
+  type: String,
+  group: "options",
+  description: 'generate Vue js filter'
+}, {
   name: 'single',
   alias: 's',
   type: String,
@@ -40,8 +46,8 @@ exports.default = [{
   defaultOption: true
 }, {
   name: 'folder',
-  alias: 'f',
-  type: Boolean,
+  alias: 'p',
+  type: String,
   group: "options",
   description: 'generate Vue js component single file inside new folder'
 }];

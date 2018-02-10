@@ -14,6 +14,10 @@ var _DirectiveTpl = require('./templates/DirectiveTpl');
 
 var _DirectiveTpl2 = _interopRequireDefault(_DirectiveTpl);
 
+var _FilterTpl = require('./templates/FilterTpl');
+
+var _FilterTpl2 = _interopRequireDefault(_FilterTpl);
+
 var _SingleTpl = require('./templates/SingleTpl');
 
 var _SingleTpl2 = _interopRequireDefault(_SingleTpl);
@@ -57,6 +61,13 @@ var TemplateFactory = function () {
        */
       if (cli.directive) {
         return new _TemplateGenerator2.default(new _DirectiveTpl2.default(cli.directive));
+      }
+
+      /**
+       * Generate Vue 2 filter
+       */
+      if (cli.filter) {
+        return new _TemplateGenerator2.default(new _FilterTpl2.default(cli.filter));
       }
 
       /**
