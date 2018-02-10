@@ -14,11 +14,12 @@ var DirectiveTpl =
  *
  * @param name - the directive name
  */
-function DirectiveTpl(name) {
+function DirectiveTpl(name, isDir) {
   _classCallCheck(this, DirectiveTpl);
 
   this.type = 'directive';
   this.name = name;
+  this.isDir = isDir;
 };
 
 exports.default = DirectiveTpl;

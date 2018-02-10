@@ -52,7 +52,6 @@ var TemplateFactory = function () {
        * Generate Vue 2 component
        */
       if (cli.component) {
-
         return new _TemplateGenerator2.default(new _ComponentTpl2.default(cli.component));
       }
 
@@ -60,21 +59,24 @@ var TemplateFactory = function () {
        * Generate Vue 2 directive
        */
       if (cli.directive) {
-        return new _TemplateGenerator2.default(new _DirectiveTpl2.default(cli.directive));
+        // return new TemplateGenerator(new DirectiveTpl(cli.directive, cli.path));
+        return new _TemplateGenerator2.default(new _DirectiveTpl2.default(cli.directive, true));
       }
 
       /**
        * Generate Vue 2 filter
        */
       if (cli.filter) {
-        return new _TemplateGenerator2.default(new _FilterTpl2.default(cli.filter));
+        // return new TemplateGenerator(new FilterTpl(cli.filter, cli.path));
+        return new _TemplateGenerator2.default(new _FilterTpl2.default(cli.filter, true));
       }
 
       /**
        * Generate Vue 2 single file component
        */
       if (cli.single) {
-        return new _TemplateGenerator2.default(new _SingleTpl2.default(cli.single, cli.folder));
+        // return new TemplateGenerator(new SingleTpl(cli.single, cli.path));
+        return new _TemplateGenerator2.default(new _SingleTpl2.default(cli.single, true));
       }
     }
   }]);

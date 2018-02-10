@@ -43,11 +43,13 @@ exports.default = [{
   type: String,
   group: "options",
   description: 'generate Vue js component single file',
-  defaultOption: true
-}, {
-  name: 'folder',
-  alias: 'p',
-  type: String,
-  group: "options",
-  description: 'generate Vue js component single file inside new folder'
+  defaultOption: true /*,
+                       {
+                       name: 'path',
+                       alias: 'p',
+                       type: Boolean,
+                       group: "options",
+                       description: 'generate Vue js file inside new folder'
+                      }*/
+
 }];

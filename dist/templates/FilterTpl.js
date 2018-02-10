@@ -14,11 +14,12 @@ var FilterTpl =
  *
  * @param name - the filter name
  */
-function FilterTpl(name) {
+function FilterTpl(name, isDir) {
   _classCallCheck(this, FilterTpl);
 
   this.type = 'filter';
   this.name = name;
+  this.isDir = isDir;
 };
 
 exports.default = FilterTpl;
