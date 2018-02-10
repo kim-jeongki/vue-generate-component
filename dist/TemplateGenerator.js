@@ -137,6 +137,10 @@ var TemplateGenerator = function () {
                 if (err) console.log(err);
               });
             }
+          } else {
+            _fsExtra2.default.outputFile(filePath, compiled, function (err) {
+              if (err) console.log(err);
+            });
           }
         });
       });
