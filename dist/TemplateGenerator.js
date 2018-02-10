@@ -131,7 +131,7 @@ var TemplateGenerator = function () {
 
           filePath = _path2.default.join(folder, fileName);
           if (require('fs').existsSync(filePath)) {
-            var answer = prompt('Do you want to overwrite \'' + fileName + '\' file?(y|n) (default=n)');
+            var answer = prompt('Do you want to overwrite \'' + fileName + '\' file? (y|n) (default=n) ');
             if ((answer || 'n').toLowerCase() === 'y') {
               _fsExtra2.default.outputFile(filePath, compiled, function (err) {
                 if (err) console.log(err);
