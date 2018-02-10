@@ -39,6 +39,7 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "prompt-sync": "^4.1.5",
     "run-sequence": "^1.2.1"
   }
 }

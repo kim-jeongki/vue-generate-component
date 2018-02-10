@@ -118,19 +118,35 @@ var TemplateGenerator = function () {
       _fsExtra2.default.readdir(dirPath, function (err, dir) {
         var name = data.name;
         var folder = _path2.default.join(process.cwd(), name);
+        var prompt = require('prompt-sync')();
         var filePath = void 0;
 
         dir.forEach(function (tempFile) {
-          var compiled = _this._compileTpl(dirPath + '/' + tempFile, data);
-          var fileName = _this._createFileName(tempFile, name, fileTypes);
+          var fileName = _this._extraNameOnlyWithoutPathTokens(_this._createFileName(tempFile, name, fileTypes));
+          var compiled = _this._compileTpl(dirPath + '/' + tempFile, {
+            name: _this._extraNameOnlyWithoutPathTokens(data.name),
+            actions: data.actions,
+            filesType: data.filesType
+          });
 
           filePath = _path2.default.join(folder, fileName);
-
-          _fsExtra2.default.outputFile(filePath, compiled, function (err) {
-            if (err) console.log(err);
-          });
+          if (require('fs').existsSync(filePath)) {
+            var n = prompt('Do you want to overwrite \'' + fileName + '\' file? (y|n)');
+            if ((n || '').toLowerCase() === 'y') {
+              _fsExtra2.default.outputFile(filePath, compiled, function (err) {
+                if (err) console.log(err);
+              });
+            }
+          }
         });
       });
+    }
+  }, {
+    key: '_extraNameOnlyWithoutPathTokens',
+    value: function _extraNameOnlyWithoutPathTokens(name) {
+      //remove path token in newName
+      var tokens = name.split('/');
+      return tokens[tokens.length - 1];
     }
 
     /**
@@ -155,10 +171,7 @@ var TemplateGenerator = function () {
         newName = newName.replace(/sty/, 'component').replace(/extension/, fileTypes.style);
       }
 
-      //remove path token in newName
-      var tokens = newName.split('/');
-      return tokens[tokens.length - 1];
-      // return newName;
+      return newName;
     }
 
     /**
